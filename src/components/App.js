@@ -7,11 +7,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			events: [
-				{ name: 'Random event!', date: Date.now() + 86400000 },
-				{ name: 'Random event!', date: Date.now() + 83400000 },
-				{ name: 'Random event!', date: Date.now() + 85400000 },
-			],
+			events: [{ name: 'Random event!', date: Date.now() + 86400000 }],
 		};
 	}
 

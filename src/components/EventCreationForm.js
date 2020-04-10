@@ -109,7 +109,6 @@ class EventCreationForm extends React.Component {
 							<span style={error}>{this.state.errors.date}</span>
 						)}
 					</div>
-
 					<br></br>
 					<input
 						type="submit"

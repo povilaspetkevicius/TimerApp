@@ -7,20 +7,19 @@ const containerStyle = {
 	maxWidth: '20rem',
 };
 
+const block = {
+	display: 'inline-block',
+	paddingRight: '1rem',
+};
+
 class Event extends React.Component {
 	render() {
 		return (
 			<div style={containerStyle}>
-				<table>
-					<tbody>
-						<tr>
-							<td>{this.props.name}</td>
-							<td>
-								<Ticker date={this.props.diffInMillis} />
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<label style={block}>{this.props.name}</label>
+				<div style={block}>
+					<Ticker date={this.props.diffInMillis} />
+				</div>
 			</div>
 		);
 	}
