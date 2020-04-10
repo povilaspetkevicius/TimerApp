@@ -2,7 +2,6 @@ import React from 'react';
 class Ticker extends React.Component {
 	constructor(props) {
 		super(props);
-		// console.log(this.)
 		this.state = {
 			time: this.props.date,
 			difference: 0,

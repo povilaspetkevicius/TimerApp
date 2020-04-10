@@ -7,12 +7,6 @@ class EventList extends React.Component {
 		this.updateTimer = this.updateTimer.bind(this);
 	}
 
-	componentDidUpdate(previousProps) {
-		if (previousProps !== this.props) {
-			console.log(this.props);
-		}
-	}
-
 	updateTimer = () => {
 		this.timer = setInterval(() => {
 			this.setState({

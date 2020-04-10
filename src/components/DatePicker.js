@@ -8,8 +8,10 @@ const inputStyle = {
 class DatePicker extends React.Component {
 	handleDatepickerChange = (event) => {
 		this.props.onDatepickerChange({
-			type: event.target.type,
-			value: event.target.value,
+			target: {
+				type: event.target.type,
+				value: event.target.value,
+			},
 		});
 	};
 	render() {
