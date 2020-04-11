@@ -4,7 +4,7 @@ import Ticker from './Ticker';
 const containerStyle = {
 	padding: '1rem',
 	borderBottom: '1px solid #3a8bba',
-	maxWidth: '20rem',
+	maxWidth: '40rem',
 };
 
 const block = {
@@ -12,13 +12,28 @@ const block = {
 	paddingRight: '1rem',
 };
 
+const buttonGroup = {
+	display: 'inline-block',
+	float: 'right',
+};
+
 class Event extends React.Component {
 	render() {
 		return (
 			<div style={containerStyle}>
-				<label style={block}>{this.props.name}</label>
+				<label style={block}>{this.props.event.name}</label>
 				<div style={block}>
-					<Ticker date={this.props.diffInMillis} />
+					<Ticker date={this.props.event.date - Date.now()} />
+				</div>
+				<div style={buttonGroup}>
+					<button
+						style={block}
+						onClick={() => {
+							this.props.deleteEvent(this.props.event.id);
+						}}
+					>
+						Delete
+					</button>
 				</div>
 			</div>
 		);

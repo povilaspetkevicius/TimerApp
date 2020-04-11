@@ -1,18 +1,29 @@
 import React from 'react';
 import Event from './Event';
+
+const listStyle = {
+	listStyleType: 'none',
+	paddingLeft: '0rem',
+	paddingRight: '1rem',
+};
+
 class EventList extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { currentDateInMillis: Date.now() };
-		this.updateTimer = this.updateTimer.bind(this);
+		this.state = { timestamp: Date.now() };
+		// this.updateTimer = this.updateTimer.bind(this);
 	}
 
 	updateTimer = () => {
 		this.timer = setInterval(() => {
 			this.setState({
-				currentDateInMillis: Date.now(),
+				timestamp: Date.now(),
 			});
 		}, 1);
+	};
+
+	deleteEvent = (id) => {
+		this.props.deleteEvent(id);
 	};
 
 	render() {
@@ -20,14 +31,11 @@ class EventList extends React.Component {
 		const listItems = this.props.events.map((e, i) => {
 			return (
 				<li key={i}>
-					<Event
-						name={e.name}
-						diffInMillis={e.date - this.state.currentDateInMillis}
-					/>
+					<Event event={e} deleteEvent={this.deleteEvent} />
 				</li>
 			);
 		});
-		return <ul>{listItems}</ul>;
+		return <ul style={listStyle}>{listItems}</ul>;
 	}
 }
 
